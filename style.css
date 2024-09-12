@@ -6,11 +6,11 @@ body {
   min-height: 100vh;
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: center;
 }
 
-.buttons button{
-  margin-left:30px;
+.btn {
+  margin-left: 30px;
 }

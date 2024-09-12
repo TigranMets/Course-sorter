@@ -6,21 +6,17 @@ const courses = [
     { name: 'jQuery course', price: 1, },
 ];
 
-function generateLIST() {
+const generateLIST = () => {
     const ul = document.querySelector('.list-group');
-    ul.innerHTML = '';
-    courses.forEach((course) => {
+    ul.replaceChildren();
+    courses.forEach(course => {
         const li = document.createElement('li');
         li.classList.add('list-group-item');
-
-        const name = document.createTextNode(course.name);
-        li.appendChild(name);
+        li.appendChild(document.createTextNode(course.name));
 
         const span = document.createElement('span');
         span.classList.add('float-right');
-
-        const price = document.createTextNode('$' + course.price);
-        span.appendChild(price);
+        span.appendChild(document.createTextNode('$' + course.price));
 
         li.appendChild(span);
         ul.appendChild(li);
@@ -29,16 +25,12 @@ function generateLIST() {
 
 generateLIST();
 
-const buttonFromSmallToBig = document.querySelector('.sort-btn-from-small-to-big');
-
-buttonFromSmallToBig.addEventListener('click', () => {
+document.querySelector('.sort-btn-from-small-to-big').addEventListener('click', () => {
     courses.sort((a, b) => a.price - b.price);
     generateLIST();
 });
 
-const buttonFromBigToSmall = document.querySelector('.sort-btn-from-big-to-small');
-
-buttonFromBigToSmall.addEventListener('click', () => {
+document.querySelector('.sort-btn-from-big-to-small').addEventListener('click', () => {
     courses.sort((a, b) => b.price - a.price);
     generateLIST();
 });
